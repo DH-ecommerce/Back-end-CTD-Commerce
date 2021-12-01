@@ -1,6 +1,7 @@
 package com.example.checkpointintegrador.service.impl;
 
 import com.example.checkpointintegrador.model.Product;
+import com.example.checkpointintegrador.persistence.entity.CategoryEntity;
 import com.example.checkpointintegrador.persistence.entity.ProductEntity;
 import com.example.checkpointintegrador.persistence.repository.CategoryRepository;
 import com.example.checkpointintegrador.persistence.repository.ProductRepository;
@@ -22,8 +23,22 @@ public class ProductServiceImpl implements CommerceService<Product> {
     @Override
     public Product save(Product product) {
         ProductEntity productEntity = new ProductEntity(product);
-        productEntity.setCategory(categoryRepository.saveAndFlush(productEntity.getCategory()));
-        return new Product(productRepository.save(productEntity));
+
+        List<CategoryEntity> listCategories = categoryRepository.findAll();
+
+        if(listCategories.size() < 1){
+            productEntity.setCategory(categoryRepository.saveAndFlush(productEntity.getCategory()));
+        } else {
+            listCategories.forEach(categoryEntity -> {
+                if ((categoryEntity.getName().equalsIgnoreCase(product.getCategory().getName()))) {
+                    productEntity.setCategory(categoryEntity);
+                } else {
+                    productEntity.setCategory(categoryRepository.saveAndFlush(productEntity.getCategory()));
+                }
+            });
+        }
+        productRepository.save(productEntity);
+        return new Product(productEntity);
     }
 
     @Override
