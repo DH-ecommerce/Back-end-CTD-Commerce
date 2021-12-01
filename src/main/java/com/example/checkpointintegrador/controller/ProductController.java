@@ -43,5 +43,4 @@ public class ProductController {
     private ResponseEntity updateProduct(@RequestBody Product product, @PathVariable Integer id) {
         return ResponseEntity.ok(productService.update(product, id));
     }
-
 }

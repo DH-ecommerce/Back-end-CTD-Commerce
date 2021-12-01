@@ -1,7 +1,9 @@
 package com.example.checkpointintegrador.service.impl;
 
 import com.example.checkpointintegrador.model.Category;
+import com.example.checkpointintegrador.model.Product;
 import com.example.checkpointintegrador.persistence.entity.CategoryEntity;
+import com.example.checkpointintegrador.persistence.entity.ProductEntity;
 import com.example.checkpointintegrador.persistence.repository.CategoryRepository;
 import com.example.checkpointintegrador.service.CommerceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,8 +59,16 @@ public class CategoryServiceImpl implements CommerceService<Category> {
 
     @Override
     public List<Category> searchAll() {
+        List<Category> categoryList = new ArrayList<>();
 
-        return null;
+        List<CategoryEntity> categoryEntityList = new ArrayList<>();
+        categoryEntityList.addAll(categoryRepository.findAll());
+
+        categoryEntityList.forEach(categoryEntity -> {
+            Category category = new Category(categoryRepository.getById(categoryEntity.getId()));
+            categoryList.add(category);
+        });
+        return categoryList;
     }
 
     @Override

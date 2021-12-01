@@ -22,4 +22,9 @@ public class CategoryController {
     private ResponseEntity searchById(@PathVariable Integer id) {
         return ResponseEntity.ok(categoryService.searchById(id));
     }
+
+    @GetMapping("/all")
+    private ResponseEntity getAll(){
+        return ResponseEntity.ok(categoryService.searchAll());
+    }
 }

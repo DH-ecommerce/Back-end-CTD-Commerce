@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements CommerceService<Product> {
@@ -70,8 +71,8 @@ public class ProductServiceImpl implements CommerceService<Product> {
     @Override
     public Product searchById(Integer id) {
         return new Product(productRepository.findById(id).get());
-
     }
+
 
     @Override
     public List<Product> searchAll() {
@@ -93,19 +94,6 @@ public class ProductServiceImpl implements CommerceService<Product> {
     }
 
     public List<Product> searchByCategory(String name) {
-        List<Product> productList = new ArrayList<>();
-        List<ProductEntity> productEntityList = new ArrayList<>();
-
-        productEntityList.addAll(productRepository.findAll());
-
-
-        productEntityList.forEach(productEntity -> {
-
-            if(productEntity.getCategory().getName().equalsIgnoreCase(name)) {
-                Product product = new Product(productRepository.getById(productEntity.getId()));
-                productList.add(product);
-            }
-        });
-        return productList;
+        return productRepository.findProductByCategory(name).stream().map(Product::new).collect(Collectors.toList());
     }
 }
