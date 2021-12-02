@@ -31,7 +31,7 @@ public class ProductServiceImpl implements CommerceService<Product> {
             productEntity.setCategory(categoryRepository.saveAndFlush(productEntity.getCategory()));
         } else {
             listCategories.forEach(categoryEntity -> {
-                if ((categoryEntity.getName().equalsIgnoreCase(product.getCategory().getName()))) {
+                if ((categoryEntity.getName().equalsIgnoreCase(product.getCategory()))) {
                     productEntity.setCategory(categoryEntity);
                 } else {
                     productEntity.setCategory(categoryRepository.saveAndFlush(productEntity.getCategory()));
