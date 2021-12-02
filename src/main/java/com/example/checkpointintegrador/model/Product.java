@@ -12,7 +12,7 @@ public class Product {
     private Double price;
     private String description;
     private String image;
-    private String category;
+    private Category category;
 
     public Product () {}
 
@@ -22,7 +22,7 @@ public class Product {
         this.price = productEntity.getPrice();
         this.description = productEntity.getDescription();
         this.image = productEntity.getImage();
-        this.category = productEntity.getCategory().getName();
+        this.category = new Category(productEntity.getCategory());
     }
 
 }
