@@ -24,10 +24,11 @@ public class ProductEntity {
     @Column(name = "price")
     private Double price;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "image")
+
+    @Column(name = "image", columnDefinition = "TEXT")
     private String image;
 
     @ManyToOne(fetch = FetchType.EAGER)
