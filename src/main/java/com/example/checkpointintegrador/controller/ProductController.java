@@ -13,32 +13,38 @@ public class ProductController {
     @Autowired
     private ProductServiceImpl productService;
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/save")
     private ResponseEntity saveProduct(@RequestBody Product product) {
         return ResponseEntity.ok(productService.save(product));
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/{id}")
     private ResponseEntity searchProductById(@PathVariable Integer id) {
         return ResponseEntity.ok(productService.searchById(id));
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/all")
     private ResponseEntity searchAll() {
         return ResponseEntity.ok(productService.searchAll());
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/categories/all/{name}")
     private ResponseEntity searchByCategory(@PathVariable String name) {
         return ResponseEntity.ok(productService.searchByCategory(name));
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/delete/{id}")
     private ResponseEntity deleteProduct(@PathVariable Integer id) {
         productService.delete(id);
         return ResponseEntity.ok("Product deleted");
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping("/update/{id}")
     private ResponseEntity updateProduct(@RequestBody Product product, @PathVariable Integer id) {
         return ResponseEntity.ok(productService.update(product, id));
