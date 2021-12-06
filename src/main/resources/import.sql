@@ -1,10 +1,10 @@
 --CATEGORIES
-INSERT INTO category (name) VALUES ('hardware');    --id 1
-INSERT INTO category (name) VALUES ('mouse');       --id 2
-INSERT INTO category (name) VALUES ('monitor');     --id 3
-INSERT INTO category (name) VALUES ('keyboard');    --id 4
-INSERT INTO category (name) VALUES ('laptop');      --id 5
-INSERT INTO category (name) VALUES ('headset');     --id 6
+INSERT INTO category (name) VALUES ('Hardwares');    --id 1
+INSERT INTO category (name) VALUES ('Mouses');       --id 2
+INSERT INTO category (name) VALUES ('Monitores');     --id 3
+INSERT INTO category (name) VALUES ('Keyboards');    --id 4
+INSERT INTO category (name) VALUES ('Laptops');      --id 5
+INSERT INTO category (name) VALUES ('Headsets');     --id 6
 
 --PRODUCTS
 INSERT INTO products (title, price, description, image, category_id) VALUES ('Zotac RTX 3060', 4199.99, 'Placa de vídeo Nvidia', 'https://images.kabum.com.br/produtos/fotos/148655/placa-de-video-zotac-gaming-geforce-rtx-3060-twin-edge-oc-15-gbps-12gb-gddr6-ray-tracing-zt-a30600h-10m_1613993479_g.jpg|https://images.kabum.com.br/produtos/fotos/148655/placa-de-video-zotac-gaming-geforce-rtx-3060-twin-edge-oc-15-gbps-12gb-gddr6-ray-tracing-zt-a30600h-10m_1613993479_g.jpg|https://images.kabum.com.br/produtos/fotos/148655/placa-de-video-zotac-gaming-geforce-rtx-3060-twin-edge-oc-15-gbps-12gb-gddr6-ray-tracing-zt-a30600h-10m_1613993479_g.jpg', 1);
