@@ -26,13 +26,13 @@ public class ProductController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/all")
+    @GetMapping("/filter/all")
     private ResponseEntity searchAll() {
         return ResponseEntity.ok(productService.searchAll());
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/categories/all/{name}")
+    @GetMapping("/filter/{name}")
     private ResponseEntity searchByCategory(@PathVariable String name) {
         return ResponseEntity.ok(productService.searchByCategory(name));
     }
