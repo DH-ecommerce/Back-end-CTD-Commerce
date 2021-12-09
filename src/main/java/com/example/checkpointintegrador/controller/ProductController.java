@@ -20,7 +20,7 @@ public class ProductController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/{id}")
+    @GetMapping("/product/{id}")
     private ResponseEntity searchProductById(@PathVariable Integer id) {
         return ResponseEntity.ok(productService.searchById(id));
     }

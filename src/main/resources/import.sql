@@ -1,7 +1,7 @@
 --CATEGORIES
 INSERT INTO category (name) VALUES ('Hardwares');    --id 1
 INSERT INTO category (name) VALUES ('Mouses');       --id 2
-INSERT INTO category (name) VALUES ('Monitores');     --id 3
+INSERT INTO category (name) VALUES ('Monitores');    --id 3
 INSERT INTO category (name) VALUES ('Keyboards');    --id 4
 INSERT INTO category (name) VALUES ('Laptops');      --id 5
 INSERT INTO category (name) VALUES ('Headsets');     --id 6
