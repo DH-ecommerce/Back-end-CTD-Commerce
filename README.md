@@ -20,7 +20,7 @@ _________
 
 ## 💻 Sobre o projeto
 
-## Enunciado:
+## Requisitos:
  Desenvolver uma API com os endpoints necessários para:
 - Tem que ser desenvolvido em Java/Spring Framework
 - Modelo MVC
